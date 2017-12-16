@@ -1,0 +1,171 @@
+%%% This is the Main tex document that performs the layout. 
+%%% You will need to compile this using LuaLaTeX with the --shell-escape option
+\documentclass[a4paper,twoside,11pt]{article}%%
+%%% Preferences to change are here.
+%%% Note that only the Sundays xiv-xv are supported for the moment
+%%% Others will be added later.
+%%%% some other preferences, not necessary to change.
+\setlength\parindent{0cm} % Paragraph indentation
+\usepackage[top=15mm, bottom=20mm, outer=17mm, inner=17mm]{geometry}% Margins
+\usepackage[autocompile]{gregoriotex}% for layout of gregorian chant
+\gresetlinecolor{gregoriocolor}%% red score lines in chants
+%%%% some experimental preferences, not yet very effective:
+%\setlength{\columnsep}{5mm}%% separation between columns
+%\setlength{\columnseprule}{0.2pt}%% column rule
+\usepackage{fontspec}% necessary for gregorio
+\usepackage{libertine}% the font
+\usepackage{paracol}% for parallel columns
+\usepackage[latin,english]{babel} % the languages for hyphenation, etc.
+\newcommand{\rubric}[1]{% make rubrics red
+  {\textit{\color{red}#1}}
+}
+\newcommand{\chant}[2]{
+  \columnratio{0.8}
+  \begin{paracol}{2}
+    \selectlanguage{latin}
+    \gabcsnippet{#1}
+    \switchcolumn
+%    \vskip 2mm% a little lower to match with chant bar height
+    \selectlanguage{english}
+    #2
+  \end{paracol}
+}
+\newcommand{\text}[2]{
+  \columnratio{0.5}
+  \begin{paracol}{2}
+    \selectlanguage{latin}
+    #1
+    \switchcolumn
+    \selectlanguage{english}
+    #2
+  \end{paracol}
+}
+
+
+\begin{document}
+  \begin{center}%%% TODO: Make this title programmatically. For now, manual edit.
+    \huge{\textbf{Missa Rorate}}\\
+    \large{In honorem Beatae Mariae Virginis in Adventu}%%
+  \end{center}
+%%%
+
+%%%%%
+
+\section*{Antiphona}%% Psalms%
+\newcommand{\refrain}{\chant{(c4)Ro(f)rá(gh)te(h.) caé(k')li(j) dé(ixji)su(h)per,(hg..) (;) et(h) nú(ixi')bes(h) plú(gf)ant(e) jús(fe)tum.(d.) (::)}{Drop down ye heavens, from above,
+    and let the skies pour down righteousness:}}
+
+\refrain
+
+\rubric{Repeat:} Rorate.
+
+\chant{(c4) ()1. Ne(f) i(g)ra(h)scá(hg)ris(h) Dó(ixhi)mi(h)ne,(h.) (,) ne(h) ul(h)tra(h) me(h)mí(h)ne(h)ris(h) in(g)i(ixi)qui(h)tá(hg)tis:(f.) (:) ec(h)ce(ixi) cí(j)vi(j)tas(j) Sánc(j)ti(j_') fác(j)ta(j) est(j) de(j)sér(j)ta:(j.) (,) Sí(j)on(j) de(j)sér(jk)ta(j) fác(ixji)ta(h) est:(h.) (;) Je(f)rú(gh)sa(h)lem(h.) de(ixgi)so(h)lá(hg)ta(f) est:(f.) (:) dó(h)mus(h) sanc(h)ti(h)fi(h)ca(h)ti(h)ó(h)nis(h) tú(h)ae(h_') et(h) gló(h)ri(g)ae(j) tú(ixji)ae,(h.) (;) u(f)bi(gh) lau(h)da(h)vé(ixhi)runt(h) te(h.) pát(gf)res(e) nós(fe)tri.(d.) (::)}{Be not wroth very sore, O Lord, neither remember iniquity for ever: behold, the holy city is a wilderness:
+  Sion is a wilderness, Jerusalem a desolation: the house of your sanctification and your glory, where Thee our fathers praised.}
+
+\refrain
+
+\chant{(c4) ()2. Pec(f)cá(gh)vi(h)mus,(h.) et(h) fác(h)ti(h) sú(h)mus(h) tam(h)quam(g') im(h)mún(ixhi)dus(h) nos,(h.) (,) et(h') ce(g)cí(f')di(e)mus(d.) (;) qua(h)si(h) fó(h)li(h)um(g) u(ixi)ni(h)vér(hg)si:(f.) (:) et(h) in(ixi)i(j)qui(j)tá(j)tes(j) nós(j)trae(j_') qua(j)si(j) vén(j)tus(j) ab(k)stu(j)lé(ixji)runt(h) nos:(h.) (;) abs(f)con(gh)dí(h)sti(h) fá(h)ci(h)em(h) tú(h)am(h.) a(f) nó(g)bis,(f.e.) (:) et(f) al(gh)li(h)sí(h)sti(h) nos(h_') in(h) má(h)nu(h) in(h)i(ixhi)qui(h)tá(hvGF')tis(e) nós(fe)trae.(d.) (::)}{We have sinned, and are as an unclean thing,
+  and we all do fade as a leaf: and our iniquities, like the wind, have taken us away; thou hast hid thy face from us: and hast consumed us, because of our iniquities.}
+
+\refrain
+
+\chant{(c4) ()3. Ví(f)de(gh) Dó(h)mi(h)ne,(h_') af(h)flic(h)ti(h)ó(h)nem(h) pó(h)pu(g)li(j) tú(ixji)i,(h.) (;) et(h) mít(hk)te(j.) quem(ixi) mis(h)sú(hg)rus(f) es:(f.) (:) e(h)mít(ixi)te(j) Ag(j)num(j_') do(j)mi(j)na(j)tó(jk)rem(j) tér(ixji)rae,(h.) (;) de(h) Pét(h)ra(h) de(h)sér(h)ti(h_') ad(h) món(h')tem(h) fí(ixgi)li(h)ae(h) Sí(hg)on:(f.) (:) ut(f) áu(gh)fe(h)rat(h') íp(h)se(h') jú(h)gum(h') cap(h)ti(ixhi)vi(h)tá(hvGF')tis(e) nós(fe)trae.(d.) (::)}{Behold, O Lord, the affliction of thy people, and send forth Him who is to come; send forth the Lamb, the ruler of the earth, from Petra of the desert to the mount of the daughter of Sion: that He may take away the yoke of our captivity.}
+
+\refrain
+
+\rubric{Here, the priest enters the church.}
+
+\chant{(c4) ()4. Con(f)so(g)lá(h')mi(h)ni,(h.) con(f)so(g)lá(h')mi(h)ni,(h.) pó(h)pu(g)le(j) mé(ixji)us:(h.) (;) ci(h')to(h) vé(k')ni(j)et(j.) sál(ixi)us(h) tú(hg)a:(f.) (:) qua(h)re(ixi) moe(j)ró(j)re(jk) con(j)sú(ixji)me(h)ris,(h.) (;) qui(h)a(h) in(h)no(h)vá(h)vit(h) te(gf) dó(ixfi)lor?(h.) (:) Sal(k)vá(ixji)bo(h) te,(h_') (,) nó(h)li(g') ti(h)mé(fg)re,(fe..) (:) é(f)go(gh) e(h)nim(h_') sum(h) Dó(k')mi(j)nus(j') Dé(ixi)us(h) tú(hg)us,(f.) (;) Sánc(h)tus(h) Is(ixhi)ra(h)el,(h_') Re(g)démp(gf)tor(e) tú(fe)us.(d.) (::)}{Comfort ye, comfort ye, my people,
+my salvation shall not tarry: why wilt thou waste away in sadness? why hath sorrow seized thee?
+Fear not, for I will save thee: for I am the Lord thy God, the Holy One of Israel, thy Redeemer.}
+\refrain
+
+\section*{Introitus}
+
+\chant{(c4) RO(cd)rá(ixdh'!iv)te(h') *(,) cae(hjjh)li(h_g) dé(h!iwj)su(j.i!jwkjk)per,(kj..) (;) et(f) nu(ixhih)bes(g) plu(jjh)ant(h.) ju(g_fhvGFgf)stum:(f.) (:) a(f)pe(g)ri(h)á(h!iwj)tur(g) ter(fgF'D)ra,(d.) (;) et(dfe) gér(fg)mi(g)net(fgFD.) Sal(d!ewf)va(ced)tó(ded__)rem.(d.) <i>Ps.</i>(::) Be(f)ne(gh)di(h)xí(h)sti(h) Dó(h)mi(h)ne(h) ter(hj)ram(h) tu(hg)am:(gh..) *(:) a(gf)ver(gh)tí(h)sti(h) ca(h)pti(h)vi(hjh)tá(g')tem(f) Ja(fff)cob.(d.) (::) Gló(f)ri(gh)a(h) Pa(h)tri(h) (::) E(h) u(hjh) o(g') u(f) a(fff) e(dc/df..) (::)}{Drop down dew, ye heavens, from above, and let the clouds rain the just: let the earth be opened, and bud forth a Saviour. \rubric{Ps.} Lord, thou hast blessed thy land; thou hast turned away the captivity of Jacob. \rubric{Is., 45,8; Ps. 84, 2.}}
+
+\section*{Kyrie}
+
+\chant{(c4) KY(df!gh)ri(gf)e(ed..) *(fvDC'd) e(cd)lé(fg)i(f)son.(ed..) (::) Ký(a)ri(cd)e(d.fvDC'd) e(cd)lé(fg)i(f)son.(ed..) (::) Ký(df!gh)ri(gf)e(ed..//fvDC'd) e(cd)lé(fg)i(f)son.(ed..) (::) 
+Chrí(h)ste(ixhgivHG'g) e(f)lé(ixgi)i(g)son.(h.) (::) Chrí(hvGFgf)ste(ed..fvDC'd) e(cd)lé(fg)i(f)son.(ed..) (::) Chrí(h)ste(ixhgivHG'g) e(f)lé(ixgi)i(g)son.(h.) (::) 
+Ký(h)ri(jk)e(kv.jkh.ixgh!ivHG'g) e(f)lé(ixgi)i(g)son.(h.) (::) Ký(hvGF)ri(gf)e(ed..fvDC'd) e(cd)lé(fg)i(f)son.(ed..) (::) Ký(h)ri(jk)e(kv.jkh.ixgh!ivHG'Fghh) *(,) (hj!kv./jkh./ixgh!ivHG'Fghh) **(,) (hvGFgvFED.fvDC'd) e(cd)lé(fg)i(f)son.(ed..) (::)}{Lord, have mercy. Lord, have mercy. Lord, have mercy. Christ, have mercy. Christ, have mercy. Christ, have mercy. Lord, have mercy. Lord, have mercy. Lord, have mercy.}
+
+\section*{Gloria}
+
+\chant{(c3) GLó(efe)ri(de)a(e') in(e) ex(fg)cél(hg~)sis(fe) Dé(c!de)o.(e.) (::) Et(i') in(j) tér(g!hi)ra(i.) pax(e) ho(fg)mí(hg)ni(fe)bus(e.) (,) bó(h')næ(f) vo(e')lun(f)tá(c!de)tis.(e.) (::) Lau(i)dá(hvGF)mus(h.) te.(i.) (::) Be(i)ne(ivHG'h)dí(f')ci(e)mus(h.) te.(i.) (::) A(i)do(ivHG'h)rá(fvED')mus(f) te.(e.) (::) Glo(i)ri(j')fi(i)cá(hvGF)mus(h.) te.(i.) (::) Grá(e')ti(f)as(g) á(h')gi(f)mus(e) tí(h.)bi(i.) (,) pro(i)pter(jk) má(l)gnam(ji) gló(ji)ri(hg)am(fg) tú(gvFE)am.(e.) (::) Dó(i')mi(h)ne(gvFE) Dé(h.)us,(i.) (,) Rex(il) cæ(kvJI'H)lés(jk)tis,(i.) (,) Dé(ef)us(hg) Pá(fe)ter(hi) o(ji)mní(gh)po(fe)tens.(de..) (::) Dó(f')mi(e)ne(d.) Fí(e')li(f) u(h')ni(i)gé(ji)ni(h)te(i.) (,) Jé(h')su(k) Chrí(jvIH)ste.(i.) (::) Dó(ehg)mi(h)ne(i') Dé(j)us,(i.) (,) A(hg)gnus(fe) Dé(h.)i,(i.) (,) Fí(j')li(i)us(hg) Pá(fe)tris.(hi..) (::) Qui(k) tól(jk)lis(i') pec(i)cá(h')ta(i) mún(jk)di,(i.) (,) mi(j')se(i)ré(hg)re(fe) nó(hi)bis.(i.) (::) Qui(l) tól(kl)lis(ji) pec(l')cá(l)ta(kj) mún(kl)di,(ji..) (,) sús(ivHG'h)ci(f)pe(e.) de(i')pre(i)ca(h')ti(i)ó(j!kl)nem(kvJI) nó(hi)stram.(i.) (::) Qui(i') sé(e)des(i.) ad(h) déx(k')te(j)ram(i') Pá(h)tris,(i.) (,) mi(i)se(jk)ré(lk)re(ji) nó(hi)bis.(i.) (::) Quó(i')ni(h)am(gh) tu(fe) só(h')lus(i) sánc(jk)tus.(i.) (::) Tu(l') só(k)lus(jij) Dó(h')mi(i)nus.(i.) (::) Tu(l') só(m)lus(l.) Al(ij)tís(kl)si(k)mus,(ji__) (,) Jé(h')su(k) Chrí(jvIH)ste.(i.) (::) Cum(ij) Sánc(hg~)to(fe) Spí(h')ri(i)tu,(i.) (,) in(il~) gló(l)ri(k)a(l.) Dé(i')i(k) Pá(jvIHij)tris.(i.) (::) A(ighvGFE.df!hvGF)men.(fe..) (::)}{Glory be to God on high, and on earth peace to men of good will. We praise Thee. We bless Thee. We adore Thee. We glorify Thee. We give Thee thanks for Thy great glory. O Lord God, heavenly King, God the Father almighty. O Lord Jesus Christ, the only begotten Son. O Lord God, Lamb of God, Son of the Father. Who takest away the sins of the world, have mercy on us. Who takest away the sins of the world, receive our prayer. Who sittest at the right hand of the Father, have mercy on us. For Thou only are holy. Thou only art the Lord. Thou only art most high, O Jesus Christ. Together with the Holy Ghost \rubric{\grecross}\ in the glory of God the Father. Amen.}
+
+\section*{Oratio}
+
+\text{Deus, qui de beatae Mriae Virginis utero Verbum tuum, Angelo nuntiante, carnem suscipere voluisti : praesta supplicibus tuis : ut, qui vere eam Genitricem Dei credimus, ejus apud te intercessionibus adjuvemur. Per Eumdem Dominum.}{O God, who didst will that Thy Word should take flesh, at the message of an angel, in the womb of the Blessed Virgin mary, grant to us Thy supplicants, that we who believe her to be truly the Mother of God may be helped by her intercession with Thee. Through the same Lord.}
+
+\rubric{To this Collect the commemoration of the ferial of Advent is added.}
+
+\section*{Epistola}
+
+\text{in diébus illis: Locútus est Dóminus ad Achaz, dicens «Pete tibi signum a Dómino Deo tuo in profúndum inférni sive in excélsum supra.» Et dixit Achaz: «Non petam, et non tentábo Dóminum.» Et dixit «Audíte ergo domus David: Numquid parum vobis est, moléstos esse homínibus quia molésti estis et Deo meo? Propter hoc dabit Dóminus ipse vobis signum. Ecce virgo concípiet et páriet fílium, et vocábitur nomen ejus Emmánuel. Butýrum et mel cómedet, ut sciat reprobáre malum, et elígere bonum.»
+}{In those days, the Lord spoke to Achaz, saying, "Ask thee a sign of the Lord, thy God, either unto the depth of hell, or unto the height above. And Achaz said, ``I will not ask, and I will not tempt the Lord.'' And he said, ``Hear ye therefore, O house of David: Is it a small thing for you to be grievous to men, that you are also grievous to My God also? Therefore the Lord Himself shall give you a sign. Behold a virgin shall conceive and bear a son, and his name shall be called Emmanuel. He shall eat butter and honey, that he may know to refuse the evil, and to choose the good.''}
+
+\section*{Graduale}
+
+\chant{(c3) TOL(egf)LI(f)TE(f) *() por(hfg/hvFEge/fg)tas,(f) (;) prín(hf/h!ij)ci(hvGF)pes,(gxfe/gvFE) (,) ve(ed/fef)stras:(fd/ef!hvhvFE/f!gwh/ihh!fgf) (:) et(hh) e(h)le(hi)vá(ih/hf)mi(f)ni(f) (,) por(hf!gwh/if/ij~)tae(hf) ae(hhf)ter(fe~)ná(f!hhh)les:(hf!gwh!iv//hi/jhh/iih) (:) et(hh) in(h)tro(h)í(hg/hi!jvHGhhg,ih/ivHF)bit(fhFEfhhf//hvhvGFhe/ed) (:) Rex(d!efhvGFgef) gló(hf)ri(hi)ae.(ih/ijIH,jh/jkIGhvFE//f!gwhiv//h!ij,ijijHF//gwhf) <sp>V/</sp>.(::) Quis(f) a(h)scén(hi)det(i) (,) in(i) mon(i)tem(i) Dó(ih/ij!kvJH)mi(hi/jij)ni?(jkvJH//jh/ji//kvJIkvJI) (:) aut(i) quis(ki!jw!kvJI) sta(i)bit(i) (;) in(i) lo(i)co(i) sanc(i)to(ij) e(jhjvIHhf//hhfhv//hhhf,hi!jvIHif)jus?(f) (:) In(hh)no(h)cens(hi) má(ivHGE//fhGEfh,gi!jvHF)ni(f)bus(fhFEfh/hf//hvhvGFhe/ed) (:) et(d!ef/hvGFg) mun(e)do(f) *() cor(hf/hi)de.(ijHGhi,e!fh/hjIHGFgwhf) (::)}{Lift up your gates, O ye princes; and be ye lifted up, O eternal gates : and the King of Glory shall enter in. \rubric{\Vbar. Ps.} Who shall ascend into the mountain of the Lord, or who shall stand in His holy place? The innocent in hands and the clean of heart.}
+
+\section*{Alleluia}
+
+\chant{(f3) AL(ef~)le(f/hfghvGE.f'//hf/gf)lú(ef~)ia.(f'hvGF.) *(;) <i>ij.</i>(f'ivHG'F//g'/hvGF'fe.) (,) (f'ivHG'Fe!hhhvGFggf.) (::) (Z) <v>\rubric{\Vbar}</v>. A(ef)ve(fg/h_f/g_e) Ma(fg!hvGF)rí(ef)a,(f.) (,) grá(fg)ti(e)a(f) ple(fiivHF'E)na:(f.) (;) Dó(i_h)mi(i_hivHF'E)nus(f.) te(h_g/h_ghvGF'E)cum:(f'hvGF.) (:) be(f)ne(g!h'i//hih/f!gwhgh/fgffe//fg!hvGF'Ef. ; fg!h'i//hih/f!gwhgh/fgffe//fg!hvGF'Ef. , fg!h'i)dí(f_e)cta(e_c) tu(efhvGF.) *(;) in(ef~) mu(f)li(ef)é(f/hfghvGE.f'//hf/gf)ri(ef)bus.(f'hvGF.) (;) (f'ivHG'F//g'hvGFfe.) (,) (f'ivHG'F//e!hhhvGFggf.) (::)}{Alleluia, Alleluia. \rubric{\Vbar.} hail Mary, full of grace, the Lord is with thee : blessed art thou among women. Alleluia.}
+
+\section*{Evangelium}
+
+\text{In illo témpore: Missus est Angelus Gábriel a Deo in civitátem Galilǽæ, cui nomen Názereth, ad Vírginem desponsátam viro, cui nomen erat Joseph, de domo David, et nomen Vírginis María. Et ingréssus Angelus ad eam, dixit: «Ave grátia plena: Dóminus tecum: benedícta tu in muliéribus.» Quæ cum audísset, turbáta est in sermóne ejus: et cogitábat qualis esset ista salutátio. Et ait Angelus ei: «Ne tímeas, María, invenísti enim grátiam apud Deum: ecce concípies in útero, et páries fílium, et vocábis nomen ejus Jesum. Hic erit magnus, et Fílius Altíssimi vocábitur, et dabit illi Dóminus Deus sedem David patris ejus: et regnábit in domo Jacob in ætérnum, et regni ejus non erit finis.» Dixit autem María ad Angelum: «Quómodo fiet istud, quóniam virum non cognósco?» Et respóndens Angelus, dixit ei: «Spíritus Sanctus supervéniet in te, et virtus Altíssimi obumbrábit tibi. Ideóque et quod nascétur ex te Sanctum vocábitur Fílius Dei. Et ecce Elísabeth cognáta tua, et ipsa concépit fílium in senectúte sua: et hic mensis sextus est illi, quæ vocátur stérilis: qui non erit impossíble apud Deum omne verbum.» Dixit autem María: «Ecce ancílla Dómini, fiat mihi secúndum verbum tuum.»}{At that time, the Angel Gabriel was sent from God into a city of Galilee, called Nazareth, unto a virgin espoused to a man whose name was Joseph, of the house of David; and the virgin's name was Mary. And the Angel, having entered, said unto her, ``Hail, full of grace, the Lord is with thee. Blessed art thou among women.'' Who, having heard, was troubled at his saying, and thought with herself what manner of salutation this might be. And the Angel said to her, ``Fear not Mary, for thou hast found grace with God. Behold, thou shalt conceive in thy womb, and shalt bring forth a Son, and thou shalt call His name Jesus. He shall be great and shall be called the Son of the most High, and the Lord shall give Him the throne of David His father; and He shall reign in the house of Jacob forever, and of His kingdom there shall be no end.'' And Mary said unto the Angel, ``How shall this be done, because I know not man?'' And the Angel answering, said to her, ``The Holy Ghost shall come upon thee, and the power of the most High shall overshadow thee. And, therefore, the Holy that shall be born of thee shall be called the Son of God. And behold thy cousin Elizabeth, she also hath conceived a son in her old age, and this is the sixth month with her that is called barren; because nothing shall be impossible with God.'' And Mary said, ``Behold the handmaid of the Lord. Be it done to me according to thy word.''}
+
+\section*{Offertorium}
+
+\chant{(c4) A(fg/hgh/fhfgvFE.//d!ef!g'h/fhf/gh)ve(g.) *(;) Ma(h)rí(jj//jjjvH'GFghjvHF'g)a,(g.) (:) grá(g_dfv.efd//de!f'g)ti(fg)a(g) ple(ghhg)na,(g.) (:) Dó(jvIHk_j//ijh/ig./hi/jg.)(,)(jvIHk_j//ijh/ig./hi/jg)mi(fg)nus(g.) (,) te(ggghvGFg_d//gjhi)cum:(hg..) (:) be(h)ne(jj)dí(jk!lvlk)cta(jk/kj) tu(ji/jkh/hg.) (;) in(g) mu(gjjvI'H)li(hkj)é(jjvI'H)ri(jvIHij)bus,(i.) (:) et(g) be(i)ne(jkj)dí(hjgh)ctus(fg!hvhg.) (;) fru(g_f/ghf/fe)ctus(d.) ven(de!f'ghvF'ED) (,) (de!f'g)tris(fhfg) tu(ghhg)i.(g.) (::)}{Hail Mary, full of grace, the Lord is with thee : blessed art thou among women and blessed is the fruit of thy womb.}
+
+\section*{Sanctus}
+
+\chant{(c3) SAn(hhffd/efe)ctus,(d.) *(,) Sán(ffe)ctus,(d.) (,) Sán(df/hhkvJI'j)ctus(ih..) (,) Dó(k')mi(j)nus(ij) Dé(kvJI)us(h.) Sá(gxfdgvFE'f)ba(ed)oth.(d.) (:) Plé(f)ni(fe) sunt(d') c<sp>'ae</sp>(e)li(f') et(h) tér(ijiih~)ra(h.) (,) gló(k)ri(ji)a(hf) tú(gxgvFE)a.(ed..) (;) Ho(f)sán(hih)na(hh) in(f') ex(d)cél(efe)sis.(ed..) (:) Be(kvJI'j)ne(h)díc(ij)tus(j.) qui(ij) vé(kvJI)nit(h.) (,) in(k) nó(jvIHij)mi(ih)ne(h.) Dó(gxfdgvFE'f)mi(ed)ni.(d.) (:) Ho(gxde/fd/ef!gvFEfv.df)sán(hhi)na(h.) (,) in(k) ex(jvIH)cél(fvED.fhf/ded)sis.(d.) (::)}{Holy, Holy, Holy, Lord God of Sabaoth! Heaven and earth are full of Thy glory! Hosanna in the highest! Blessed is He that cometh in the Name of the Lord! Hosanna in the highest!}
+
+\section*{Secretum}
+
+\text{In méntibus nostris, quæsumus, Dómine, veræ fídei sacraménta confirma: ut, qui concéptum de Vírgine Deum verum et hóminem confitémur; per ejus salutíferæ resurrectiónis poténtiam, ad ætérnam mereámur perveníre lætítiam.}{Confirm in our minds, we beseech Thee, O Lord, the mysteries of the true faith; that we who confess Him who was conceived of a virgin to be true God and man, may deserve to arrive at eternal joy, by the power of His saving resurrection.}
+
+\rubric{Commemoration of the ferial day of Advent}
+
+\section*{Agnus Dei}
+
+\chant{(c3) A(d)gnus(fh) Dé(fe/hh)i(ih..) *(,) qui(h!ij) tól(kvJIH'i)lis(h.) (,) pec(k)cá(ij)ta(k) mún(jvIH'i)di:(h.) (;) mi(gxf!gh)se(hvGF)ré(ed)re(ef) nó(ded___)bis.(d.) (::)
+A(d)gnus(fh) Dé(fe/hh)i(ih..) *(,) qui(f) tól(gxgvFE)lis(d.) pec(h)cá(f')ta(gxg) mún(hi)di:(h.) (;) mi(gxf!gh)se(hvGF)ré(ed)re(ef) nó(ded___)bis.(d.) (::)
+A(d)gnus(fh) Dé(fe/hh)i(ih..) *(,) qui(h!ij) tól(kvJIH'i)lis(h.) (,) pec(k)cá(ij)ta(k) mún(jvIH'i)di:(h.) (;) dó(gxf!gh)na(hvGF) nó(ed)bis(ef) pá(ded___)cem.(d.) (::)}{Lamb of God, who takest away the sins of the world, have mercy on us.
+Lamb of God, who takest away the sins of the world, have mercy on us.
+Lamb of God, who takest away the sins of the world, grant us peace. }
+
+\section*{Communio}
+
+\chant{(c4) EC(d)ce(dfe) vir(fg)go(d.) *(,) con(ce)cí(gh)pi(g_f)et,(fv.efd.) (;) et(de) pá(gh!jj/kh)ri(gh)et(h) fí(h)li(h!iwjh)um:(h.) (:) et(h_g) vo(jj)cá(h_g)bi(ixihi)tur(gh/i_h) (,) no(fe)men(f) e(ixg!hw!ivHG)jus(hg..) (,) Em(fge___/ed)má(d!ewf!g'h)nu(fvED)el.(d.) <i>T. P.</i>(::) Al(fg~)le(e_d/fh/ghg/e!fg/hf/gvFE)lú(d!ew!fef)ia.(ed..) (::)}{Behold, a virgin shall conceive, and bring forth a son, and His name shall be called Emmanuel. }
+
+\section*{Postcommunio}
+
+\text{Grátiam tuam, quǽsumus, Dómine, méntibus nostris infúnde: ut qui, Angelo nuntiánte, Christi Fílii tui incarnatiónem cognóvimus; per passiónem ejus et crucem, ad resurrectiónis glóriam perducámur.}{Pour forth, we beseech Thee, O Lord, Thy grace into our hearts, that we to whom the incarnation of Christ Thy Son was made known by the message of an angel, may, by His passion and cross be brought to the glory of His resurrection.}
+
+\rubric{Commemoration of the ferial day of Advent}
+
+\section*{Ite Missa Est}
+
+\chant{(c4) I(df!ghG'F)te,(ed..fvDC'd/cd) mis(fg)sa(f) est.(ed..) (::)
+<v>\rubric{\Rbar}</v>. De(df!ghG'F)o(ed..fvDC'd/cd) grá(fg)ti(f)as.(ed..) (::)}{\rubric{\Vbar.}Go, the Mass is ended. \rubric{\Rbar.}Thanks be to God.}
+
+\section*{Exitus}
+
+\rubric{The following antiphon is sung three times, each at a higher tone.}
+
+\chant{(c3) EC(h_)ce(f'_) Dó(h)mi(g)nus(e_g) vé(f)ni(e)et,(d.) *(,) et(d) o(e)mnes(d') san(e)cti(f') e(h)jus(i') cum(i) e(h)o:(h.) (;) et(h) e(h)rit(h) in(h') di(i)e(g') íl(h)la(f.) (,) lux(d_e) ma(e)gna,(e') al(f)le(ef)lú(d.)ia.(d.) (::)}{Behold, the Lord shall come, and all His saints with Him : and there shall be in that day a great light, alleluia}
+
+\end{document}
+%%% Emacs stuff %%%
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% TeX-engine: luatex
+%%% TeX-command-extra-options: "-shell-escape"
+%%% End:
