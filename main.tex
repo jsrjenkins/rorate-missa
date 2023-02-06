@@ -1,22 +1,23 @@
 %%% This is the Main tex document that performs the layout. 
 %%% You will need to compile this using LuaLaTeX with the --shell-escape option
 \documentclass[a4paper,twoside,11pt]{article}%%
-%%% Preferences to change are here.
-\setlength\parindent{0cm} % Paragraph indentation
 \usepackage[top=20mm, bottom=25mm, outer=20mm, inner=20mm]{geometry}% Margins
+
 \usepackage[autocompile]{gregoriotex}% for layout of gregorian chant
 \gresetlinecolor{gregoriocolor}%% red score lines in chants
-%%%% some experimental preferences, not yet very effective:
-%\setlength{\columnsep}{5mm}%% separation between columns
-%\setlength{\columnseprule}{0.2pt}%% column rule
 \usepackage{fontspec}% necessary for gregorio
-\usepackage{libertine}% the font
+
+\usepackage{libertine}% the font used in the layout
 \usepackage{paracol}% for parallel columns
 \usepackage[latin,english]{babel} % the languages for hyphenation, etc.
+\setlength\parindent{0cm} % Paragraph indentation at 0
+%%%% some experimental preferences, not yet very effective:
+% \setlength{\columnsep}{5mm}%% separation between columns
+%\setlength{\columnseprule}{0.2pt}%% column rule
 \newcommand{\rubric}[1]{% make rubrics red
   {\textit{\color{red}#1}}%
 }
-\newcommand{\chant}[2]{
+\newcommand{\chant}[2]{%% Typeset chants with english translation
   \columnratio{0.8}
   \begin{paracol}{2}
     \selectlanguage{latin}
@@ -27,7 +28,7 @@
    {#2} 
   \end{paracol}
 }
-\newcommand{\text}[2]{
+\newcommand{\text}[2]{%% Two column texts, Latin & English
   \columnratio{0.5}
   \begin{paracol}{2}
     \selectlanguage{latin}
@@ -38,19 +39,15 @@
   \end{paracol}
 }
 
-
 \begin{document}
-  \begin{center}%%% TODO: Make this title programmatically. For now, manual edit.
+  \begin{center}
     \huge{\textbf{Missa Rorate}}\\
     \large{In honorem Beatae Mariae Virginis in Adventu}%%
   \end{center}
-%%%
 
-%%%%%
-
-\section*{Antiphona}%% Psalms%
+\section*{Antiphona}
 \newcommand{\refrain}{\chant{(c4)Ro(f)rá(gh)te(h.) caé(k')li(j) dé(ixji)su(h)per,(hg..) (;) et(h) nú(ixi')bes(h) plú(gf)ant(e) jús(fe)tum.(d.) (::)}{Drop down ye heavens, from above,
-    and let the skies pour down righteousness:}}
+    and let the skies pour down righteousness:}}%% For the refrain
 
 \refrain
 
@@ -141,7 +138,7 @@ Lamb of God, who takest away the sins of the world, grant us peace. }
 \chant{(c4) EC(d)ce(dfe) vir(fg)go(d.) *(,) con(ce)cí(gh)pi(g_f)et,(fv.efd.) (;) et(de) pá(gh!jj/kh)ri(gh)et(h) fí(h)li(h!iwjh)um:(h.) (:) et(h_g) vo(jj)cá(h_g)bi(ixihi)tur(gh/i_h) (,) no(fe)men(f) e(ixg!hw!ivHG)jus(hg..) (,) Em(fge___/ed)má(d!ewf!g'h)nu(fvED)el.(d.) <i>T. P.</i>(::) Al(fg~)le(e_d/fh/ghg/e!fg/hf/gvFE)lú(d!ew!fef)ia.(ed..) (::)}{Behold, a virgin shall conceive, and bring forth a son, and His name shall be called Emmanuel. }
 
 % small hack to keep on same page
-\clearpage
+\clearpage 
 \section*{Postcommunio}
 
 \text{Grátiam tuam, quǽsumus, Dómine, méntibus nostris infúnde: ut qui, Angelo nuntiánte, Christi Fílii tui incarnatiónem cognóvimus; per passiónem ejus et crucem, ad resurrectiónis glóriam perducámur.}{Pour forth, we beseech Thee, O Lord, Thy grace into our hearts, that we to whom the incarnation of Christ Thy Son was made known by the message of an angel, may, by His passion and cross be brought to the glory of His resurrection.}
@@ -169,3 +166,4 @@ Lamb of God, who takest away the sins of the world, grant us peace. }
 %%% TeX-engine: luatex
 %%% TeX-command-extra-options: "-shell-escape"
 %%% End:
+%
